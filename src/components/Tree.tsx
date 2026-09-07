@@ -1,0 +1,5 @@
+import {useState} from 'react'
+import type {RepoDirectory, RepoFile, RepoNode} from '../types'
+function FileRow({file,active,onSelect}:{file:RepoFile;active:boolean;onSelect:(f:RepoFile)=>void}){return <button className={`tree-file ${active?'active':''}`} onClick={()=>onSelect(file)}><span className="tree-dot">·</span><span>{file.name}</span></button>}
+export function Tree({root,activePath,onSelect}:{root:RepoDirectory;activePath:string;onSelect:(f:RepoFile)=>void}){return <div className="tree">{root.children.map(n=><TreeNode key={n.path} node={n} activePath={activePath} onSelect={onSelect}/>)}</div>}
+function TreeNode({node,activePath,onSelect}:{node:RepoNode;activePath:string;onSelect:(f:RepoFile)=>void}){const [open,setOpen]=useState(true); if(node.type==='file') return <FileRow file={node} active={node.path===activePath} onSelect={onSelect}/>; return <div className="tree-dir"><button className="tree-dir-head" onClick={()=>setOpen(!open)}><span>{open?'▾':'▸'}</span><span>{node.name}</span></button>{open&&<div className="tree-children">{node.children.map(c=><TreeNode key={c.path} node={c} activePath={activePath} onSelect={onSelect}/>)}</div>}</div>}

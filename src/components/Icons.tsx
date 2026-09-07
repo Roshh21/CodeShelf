@@ -1,0 +1,1 @@
+export const Icon = ({name}:{name:string}) => <span className="icon" aria-hidden="true">{name==='folder'?'▾':name==='file'?'•':name==='search'?'⌕':name==='menu'?'☰':name==='sun'?'☼':name==='moon'?'◐':'→'}</span>

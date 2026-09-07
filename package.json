@@ -1,0 +1,41 @@
+{
+  "name": "codeshelf",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "server": "tsx server/index.ts",
+    "dev:full": "concurrently \"vite\" \"npm:server\""
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "prism-react-renderer": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-markdown": "latest",
+    "react-router-dom": "latest",
+    "remark-gfm": "latest",
+    "react-icons": "latest",
+    "react-syntax-highlighter": "latest",
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "lru-cache": "^11.2.2",
+    "dotenv": "^17.2.2"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "vite": "latest",
+    "tailwindcss": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-syntax-highlighter": "latest",
+    "@types/express": "^5.0.3",
+    "@types/cors": "^2.8.19",
+    "tsx": "^4.20.5",
+    "concurrently": "^9.2.1"
+  }
+}
